@@ -1,11 +1,15 @@
+import Input from "./Input";
+import React from "react";
+import TextArea from "./TextArea";
+
 const FormikControls = (props) => {
-  const { control } = props;
+  const { control, ...rest } = props;
   switch (control) {
     case "input":
-      break;
+      return <Input {...rest} />;
 
     case "textarea":
-      break;
+      return <TextArea {...rest} />;
 
     case "select":
       break;
