@@ -16,10 +16,8 @@ class Counter extends Component {
     //     count: this.state.count + 1,
     //   },
     //   () => {
-    //     console.log("In Callback >>> ", this.state.count);
     //   }
     // );
-    // console.log("Out of Callback >>> ", this.state.count);
     this.setState(
       (prevState) => ({
         count: prevState.count + 1,

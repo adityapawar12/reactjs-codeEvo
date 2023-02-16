@@ -22,47 +22,49 @@ import ReactFormik from "./components/react-formik/ReactFormik";
 // const LazyAbout = React.lazy(() =>
 //   import("./components/react-router/react-router-components/About")
 // );
+// import { ThemeProvider, ColorModeProvider } from "@chakra-ui/react";
 
 class App extends Component {
   render() {
     return (
+      // <ThemeProvider>
       <div>
         {/* <AuthProvider>
-          <Navbar />
-          <React.Suspense fallback={"Loading..."}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              // <Route path="/about" element={<About />} /> 
-              <Route path="/about" element={<LazyAbout />} />
-              <Route path="/order-summary" element={<OrderSummary />} />
-              <Route path="/products" element={<Products />}>
-                <Route index element={<FeaturedProducts />} />
-                <Route path="featured" element={<FeaturedProducts />} />
-                <Route path="new" element={<NewProducts />} />
-              </Route>
-          //      <Route path="/users" element={<Users />} />
-          // <Route path="/users/:userId" element={<UserDetails />} />
-          // <Route path="/users/admin" element={<Admin />} />
-              <Route path="/users" element={<Users />}>
-                <Route path=":userId" element={<UserDetails />} />
-                <Route path="admin" element={<Admin />} />
-              </Route>
-          //     <Route path="/users/1" element={<UserDetails />} />
-          // <Route path="/users/2" element={<UserDetails />} />
-          // <Route path="/users/3" element={<UserDetails />} />
-              <Route
-                path="/profile"
-                element={
-                  <RequireAuth>
-                    <Profile />
-                  </RequireAuth>
-                }
-              />
-              <Route path="/login" element={<Login />} />
-              <Route path="*" element={<NoMatch />} />
-            </Routes>
-          </React.Suspense>
-        </AuthProvider> */}
+        <Navbar />
+        <React.Suspense fallback={"Loading..."}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            // <Route path="/about" element={<About />} /> 
+            <Route path="/about" element={<LazyAbout />} />
+            <Route path="/order-summary" element={<OrderSummary />} />
+            <Route path="/products" element={<Products />}>
+              <Route index element={<FeaturedProducts />} />
+              <Route path="featured" element={<FeaturedProducts />} />
+              <Route path="new" element={<NewProducts />} />
+            </Route>
+        //      <Route path="/users" element={<Users />} />
+        // <Route path="/users/:userId" element={<UserDetails />} />
+        // <Route path="/users/admin" element={<Admin />} />
+            <Route path="/users" element={<Users />}>
+              <Route path=":userId" element={<UserDetails />} />
+              <Route path="admin" element={<Admin />} />
+            </Route>
+        //     <Route path="/users/1" element={<UserDetails />} />
+        // <Route path="/users/2" element={<UserDetails />} />
+        // <Route path="/users/3" element={<UserDetails />} />
+            <Route
+              path="/profile"
+              element={
+                <RequireAuth>
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<NoMatch />} />
+          </Routes>
+        </React.Suspense>
+      </AuthProvider> */}
 
         {/*       <div className="App">*/}
         {/* REACT JS BASICS/FUNDAMENTALS */}
@@ -79,6 +81,7 @@ class App extends Component {
 
         {/*       </div>*/}
       </div>
+      // </ThemeProvider>
     );
   }
 }

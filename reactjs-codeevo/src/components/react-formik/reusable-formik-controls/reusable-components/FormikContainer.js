@@ -22,31 +22,54 @@ const FormikContainer = () => {
       value: "three",
     },
   ];
-  const optionsValuesR = [
+  const radioButtonValues = [
     {
       key: "Option 1",
-      value: "rt",
+      value: "Radio button 1",
     },
     {
       key: "Option 2",
-      value: "at",
+      value: "Radio button 2",
     },
     {
       key: "Option 3",
-      value: "tt",
+      value: "Radio button 3",
+    },
+  ];
+  const ChecboxGroupValues = [
+    {
+      key: "Option 1",
+      value: "Checkbox group 1",
+    },
+    {
+      key: "Option 2",
+      value: "Checkbox group 2",
+    },
+    {
+      key: "Option 3",
+      value: "Checkbox group 3",
     },
   ];
   const initialValues = {
     email: "",
+    emailChakra: "",
     description: "",
     selectedNum: "",
-    selectedNumR: "",
+    radioButtonField: "",
+    checkBoxGroupField: [],
+    birthDate: null,
   };
   const validationSchema = Yup.object({
     email: Yup.string().required("Email is required!"),
+    emailChakra: Yup.string().required("Email is required!"),
     description: Yup.string().required("Description is required!"),
     selectedNum: Yup.string().required("Selected number is required!"),
-    selectedNumR: Yup.string().required("Selected number R is required!"),
+    radioButtonField: Yup.string().required("Radio button value is required!"),
+    checkBoxGroupField: Yup.array()
+      .required("Checkbox value is required!")
+      .min(1, "Checkbox value is required!")
+      .nullable(),
+    birthDate: Yup.date().required("Birth Date is required!").nullable(),
   });
   const onSubmit = (values) => {
     console.log("FORM DATA >>> ", values);
@@ -66,6 +89,12 @@ const FormikContainer = () => {
             name={`email`}
             label={`Email`}
           />
+          {/* <FormikControls
+            control={`chakrainput`}
+            type={`email`}
+            name={`emailChakra`}
+            label={`Email Chakra`}
+          /> */}
           <FormikControls
             control={`textarea`}
             name={`description`}
@@ -79,9 +108,20 @@ const FormikContainer = () => {
           />
           <FormikControls
             control={`radio`}
-            name={`selectedNumR`}
-            label={`Select Number R`}
-            options={optionsValuesR}
+            name={`radioButtonField`}
+            label={`Select Radio Button value`}
+            options={radioButtonValues}
+          />
+          <FormikControls
+            control={`checkbox`}
+            name={`checkBoxGroupField`}
+            label={`Select Checkbox values`}
+            options={ChecboxGroupValues}
+          />
+          <FormikControls
+            control={`date`}
+            name={`birthDate`}
+            label={`Select birth date`}
           />
           <button type="submit">Submit</button>
         </Form>
