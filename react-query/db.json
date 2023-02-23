@@ -29,6 +29,17 @@
       "id": 3,
       "name": "Ross"
     }
+  ],
+  "users": [
+    {
+      "id": "adityapawar@example.com",
+      "channelId" : "freq"
+    }
+  ],
+  "channels": [
+    {
+      "id": "freq",
+      "courses": ["react", "vue", "angular"]
+    }
   ]
-
 }
