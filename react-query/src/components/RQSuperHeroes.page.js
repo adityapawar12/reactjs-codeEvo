@@ -1,9 +1,14 @@
-import { useQuery } from "react-query";
-import axios from "axios";
+// import { useQuery } from "react-query";
+// import axios from "axios";
+// import { useState } from "react";
 
-const fetchSuperheroes = () => {
-  return axios.get("http://localhost:4000/superheroes");
-};
+import { Link } from "react-router-dom";
+import { useSuperHeroesData } from "../hooks/useSuperHeroesData";
+
+// const fetchSuperheroes = () => {
+//   return axios.get("http://localhost:4000/superheroes");
+//   // return axios.get("http://localhost:4000/superheroes1");
+// };
 
 export const RQSuperHeroesPage = () => {
   // SET THE AMOUNT OF TIME THE DATA WILL BE CACHED BY REACT QUERY(5 MINUTES BY DEFAULT)
@@ -69,13 +74,68 @@ export const RQSuperHeroesPage = () => {
   // }
 
   // CALL USEQUERY ON A USER EVENT SUCH AS A CLICK(INSTEAD OF COMPONENT MOUNT OR WINDOW FOCUS)
-  const { isLoading, isFetching, data, isError, error, refetch } = useQuery(
-    "super-heroes",
-    fetchSuperheroes,
-    {
-      enabled: false,
-    }
-  );
+  // const { isLoading, isFetching, data, isError, error, refetch } = useQuery(
+  //   "super-heroes",
+  //   fetchSuperheroes,
+  //   {
+  //     enabled: false,
+  //   }
+  // );
+
+  // const [fetchInterval, setFetchInterval] = useState(3000);
+
+  // // SUCCESS CALLBACK FUNCTION
+  // const onSuccess = (data) => {
+  //   console.log("PERFORM SIDE EFFECT AFTER DATA FETCHING >>> ", data);
+  //   if (data.data.length > 3) {
+  //     setFetchInterval(false);
+  //   }
+  // };
+
+  // // ERROR CALLBACK FUNCTION
+  // const onError = (error) => {
+  //   console.log("PERFORM SIDE EFFECT AFTER ENCOUNTERING ERROR >>> ", error);
+  //   if (error) {
+  //     setFetchInterval(false);
+  //   }
+  // };
+
+  // // CALL USEQUERY ON A USER EVENT SUCH AS A CLICK(INSTEAD OF COMPONENT MOUNT OR WINDOW FOCUS)
+  // const { isLoading, isFetching, data, isError, error, refetch } = useQuery(
+  //   "super-heroes",
+  //   fetchSuperheroes,
+  //   {
+  //     refetchInterval: fetchInterval,
+  //     onSuccess: onSuccess,
+  //     onError: onError,
+  //   }
+  // );
+
+  // DATA TRANSFORMATION
+  // const { isLoading, isFetching, data, isError, error, refetch } = useQuery(
+  //   "super-heroes",
+  //   fetchSuperheroes,
+  //   {
+  //     select: (data) => {
+  //       const heroNames = data.data.map((hero) => hero.name);
+  //       return heroNames;
+  //     },
+  //   }
+  // );
+
+  // CUSTOM QUERY HOOK
+  const onSuccess = (data) => {
+    console.log("PERFORM SIDE EFFECT AFTER DATA FETCHING >>> ", data);
+  };
+
+  const onError = (error) => {
+    console.log("PERFORM SIDE EFFECT AFTER ENCOUNTERING ERROR >>> ", error);
+  };
+
+  const { isLoading, isFetching, data, isError, error, refetch } =
+    useSuperHeroesData(onSuccess, onError, true);
+
+  console.log(isLoading, isFetching);
 
   if (isLoading || isFetching) {
     return <h2>Loading...</h2>;
@@ -88,11 +148,22 @@ export const RQSuperHeroesPage = () => {
   return (
     <>
       <h2>React Query Super Heroes Page</h2>
-
       <button onClick={refetch}>Fetch Heroes</button>
-
+      {/* 
       {data?.data.map((superHero) => {
         return <div key={superHero.name}>{superHero.name}</div>;
+      })} */}
+      {/* {data.map((heroName) => {
+        return <div key={heroName}>{heroName}</div>;
+      })} */}
+      {data?.data.map((superHero) => {
+        return (
+          <div key={superHero.id}>
+            <Link to={`/rq-super-heroes/${superHero.id}`}>
+              {superHero.name}
+            </Link>
+          </div>
+        );
       })}
     </>
   );
