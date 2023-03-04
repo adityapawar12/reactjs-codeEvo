@@ -10,6 +10,8 @@ import RQSuperHeroPage from "./components/RQSuperHero.page";
 import ParallelQueriesPage from "./components/ParallelQueries.page";
 import DynamicParallelQueriesPage from "./components/DynamicParallelQueries.page";
 import DependentQueriesPage from "./components/DependentQueries.page";
+import PaginatedQueriesPage from "./components/PaginatedQueries.page";
+import InfiniteQueriesPage from "./components/InfiniteQueries.page";
 
 const queryClient = new QueryClient();
 
@@ -24,24 +26,28 @@ const App = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/super-heroes">Traditional Super Heroes</Link>
+                <Link to="/super-heroes">Traditional SH</Link>
               </li>
               <li>
-                <Link to="/rq-super-heroes">RQ Super Heroes</Link>
+                <Link to="/rq-super-heroes">RQ SH</Link>
               </li>
               <li>
-                <Link to="/rq-super-heroes-doppelgangers">
-                  RQ Super Heroes Dopplegangers
-                </Link>
+                <Link to="/rq-super-heroes-doppelgangers">RQ SH Dopple</Link>
               </li>
               <li>
-                <Link to="/rq-parallel">RQ Parallel</Link>
+                <Link to="/rq-parallel">RQ Parall</Link>
               </li>
               <li>
-                <Link to="/rq-dynamic-parallel">RQ Dynamic Parallel</Link>
+                <Link to="/rq-dynamic-parallel">RQ Dyn Parall</Link>
               </li>
               <li>
-                <Link to="/rq-dependent">RQ Dependent</Link>
+                <Link to="/rq-dependent">RQ Depend</Link>
+              </li>
+              <li>
+                <Link to="/rq-paginated">RQ Paginate</Link>
+              </li>
+              <li>
+                <Link to="/rq-infinite">RQ Infinite</Link>
               </li>
             </ul>
           </nav>
@@ -66,6 +72,12 @@ const App = () => {
             </Route>
             <Route path="/rq-dependent">
               <DependentQueriesPage email={`adityapawar@example.com`} />
+            </Route>
+            <Route path="/rq-paginated">
+              <PaginatedQueriesPage />
+            </Route>
+            <Route path="/rq-infinite">
+              <InfiniteQueriesPage />
             </Route>
             <Route path="/">
               <HomePage />
