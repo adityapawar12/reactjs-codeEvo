@@ -1,9 +1,11 @@
 // import { useQuery } from "react-query";
 // import axios from "axios";
-// import { useState } from "react";
-
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSuperHeroesData } from "../hooks/useSuperHeroesData";
+import {
+  useSuperHeroesData,
+  useAddSuperHeroeData,
+} from "../hooks/useSuperHeroesData";
 
 // const fetchSuperheroes = () => {
 //   return axios.get("http://localhost:4000/superheroes");
@@ -124,6 +126,12 @@ export const RQSuperHeroesPage = () => {
   // );
 
   // CUSTOM QUERY HOOK
+
+  const [name, setName] = useState("");
+  const [alterEgo, setAlterEgo] = useState("");
+  // const [addLoaderText, setAddLoaderText] = useState("");
+  // const [addErrorText, setAddErrorText] = useState("");
+
   const onSuccess = (data) => {
     console.log("PERFORM SIDE EFFECT AFTER DATA FETCHING >>> ", data);
   };
@@ -137,6 +145,19 @@ export const RQSuperHeroesPage = () => {
 
   console.log(isLoading, isFetching);
 
+  const {
+    mutate,
+    // isLoading: isAddLoading,
+    // isError: isAddError,
+    // error: addError,
+  } = useAddSuperHeroeData();
+
+  const handleAddHeroClick = (event) => {
+    console.log({ name, alterEgo });
+    const hero = { name, alterEgo };
+    mutate(hero);
+  };
+
   if (isLoading || isFetching) {
     return <h2>Loading...</h2>;
   }
@@ -148,6 +169,35 @@ export const RQSuperHeroesPage = () => {
   return (
     <>
       <h2>React Query Super Heroes Page</h2>
+
+      <form>
+        <input
+          type={`text`}
+          name={`name`}
+          placeholder={`Name`}
+          id={`name`}
+          value={name}
+          onChange={(event) => {
+            setName(event.target.value);
+          }}
+        />
+        <input
+          type={`text`}
+          name={`alterEgo`}
+          placeholder={`Alter Ego`}
+          id={`alterEgo`}
+          value={alterEgo}
+          onChange={(event) => {
+            setAlterEgo(event.target.value);
+          }}
+        />
+        {/* {addLoaderText.length > 0 && <p>{addLoaderText}</p>}
+        {addErrorText.length > 0 && <p>{addErrorText}</p>} */}
+        <button type={`button`} onClick={(event) => handleAddHeroClick(event)}>
+          Add Hero
+        </button>
+      </form>
+
       <button onClick={refetch}>Fetch Heroes</button>
       {/* 
       {data?.data.map((superHero) => {

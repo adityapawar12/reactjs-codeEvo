@@ -14,6 +14,116 @@
       "id": 3,
       "name": "Wonder Woman",
       "alterEgo": "Princess Diana"
+    },
+    {
+      "name": "Barry Allen",
+      "alterEgo": "Flash",
+      "id": 4
+    },
+    {
+      "name": "Rock",
+      "alterEgo": "Black Adam",
+      "id": 5
+    },
+    {
+      "name": "Peter",
+      "alterEgo": "Spider man",
+      "id": 6
+    },
+    {
+      "name": "Stacy",
+      "alterEgo": "Spider girl",
+      "id": 7
+    },
+    {
+      "name": "Stacy gwen",
+      "alterEgo": "Spider girl",
+      "id": 8
+    },
+    {
+      "name": "rock",
+      "alterEgo": "adam",
+      "id": 9
+    },
+    {
+      "name": "vin diesel",
+      "alterEgo": "dom",
+      "id": 10
+    },
+    {
+      "name": "naruto",
+      "alterEgo": "knukle head ninja",
+      "id": 11
+    },
+    {
+      "name": "selena kyle",
+      "alterEgo": "batwoman",
+      "id": 12
+    },
+    {
+      "name": "selena kyle",
+      "alterEgo": "batwoman",
+      "id": 13
+    },
+    {
+      "name": "selena kyle",
+      "alterEgo": "batwoman",
+      "id": 14
+    },
+    {
+      "name": "selena kyle",
+      "alterEgo": "batwoman",
+      "id": 15
+    },
+    {
+      "name": "selena kyle",
+      "alterEgo": "batwoman",
+      "id": 16
+    },
+    {
+      "name": "Arthur Curry",
+      "alterEgo": "aquaman",
+      "id": 17
+    },
+    {
+      "name": "Arthur Curry",
+      "alterEgo": "aquaman",
+      "id": 18
+    },
+    {
+      "name": "a",
+      "alterEgo": "b",
+      "id": 19
+    },
+    {
+      "name": "a",
+      "alterEgo": "b",
+      "id": 20
+    },
+    {
+      "name": "a",
+      "alterEgo": "b",
+      "id": 21
+    },
+    {
+      "name": "ba",
+      "alterEgo": "ba",
+      "id": 22
+    },
+    {
+      "name": "g",
+      "alterEgo": "g",
+      "id": 23
+    },
+    {
+      "name": "e",
+      "alterEgo": "e",
+      "id": 24
+    },
+    {
+      "name": "ag",
+      "alterEgo": "g",
+      "id": 25
     }
   ],
   "friends": [
@@ -33,13 +143,17 @@
   "users": [
     {
       "id": "adityapawar@example.com",
-      "channelId" : "freq"
+      "channelId": "freq"
     }
   ],
   "channels": [
     {
       "id": "freq",
-      "courses": ["react", "vue", "angular"]
+      "courses": [
+        "react",
+        "vue",
+        "angular"
+      ]
     }
   ],
   "colors": [
